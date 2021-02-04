@@ -32,7 +32,6 @@ export default class ImageGallery extends Component {
         }
         if (prevPage !== nextPage && nextPage > 1) {
             this.searchMoreImages(nextName, nextPage)
-            console.log('error');
         }
     }
         // console.log('prevName', prevName);
@@ -61,19 +60,15 @@ export default class ImageGallery extends Component {
                         }))
                     })
                     .catch(error => this.setState({ error, status: 'rejected' }))
-                    .finally(() => {
-                        window.scrollTo({
-                            top: document.documentElement.scrollHeight,
-                            behavior: 'smooth',
-                        });
-                    })
             }
         
-    
     toggleModal = () => {
         this.setState(({ showModal }) => ({
             showModal: !showModal,
         }))
+         window.scrollTo({
+            top: document.documentElement.scrollHeight,
+            behavior: 'smooth',});
         
     };
      
@@ -115,13 +110,12 @@ export default class ImageGallery extends Component {
                 width={100}
                 />
         }
-                { (images.length> 0 || status === 'resolved')&&
+                {(images.length> 0 || status === 'resolved')&&
                         <Button onloadMore={this.loadMore} />} 
                     {showModal &&
                     <Modal onClose={this.toggleModal}>
-                    <img src={largeImg} alt={images.tags} />
-                    </Modal>
-                       } 
+                    <img src={largeImg} alt={images.tags}/>
+                    </Modal>} 
                     </div>
             )
         }      

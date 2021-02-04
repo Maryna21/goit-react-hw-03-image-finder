@@ -1,5 +1,5 @@
 import 'App.css';
-export default function ImageGalleryItem({ src, alt, onChangeImg, largeImgUrl}) {
+export default function ImageGalleryItem({ src, alt, onChangeImg, largeImg}) {
    
     return (
         <li
@@ -10,8 +10,9 @@ export default function ImageGalleryItem({ src, alt, onChangeImg, largeImgUrl}) 
                     alt={alt}
                 className="ImageGalleryItem-image"
                 onClick={onChangeImg}
-                largeImg={largeImgUrl}
+                largeImg={largeImg}
             />
+            
         </li>      
     )
     }
