@@ -4,10 +4,17 @@ import { createPortal } from 'react-dom';
 const modalRoot = document.querySelector('#modal-root');
 export default class Modal extends Component {
     componentDidMount() {
-        console.log('Modal componentDidMount')
+        console.log('Modal componentDidMount');
+
+        window.addEventListener('keydown', e => {
+            if (e.code === 'Escape') {
+                this.props.onClose();
+            }
+        });
     }
     componentWillUnmount() {
         console.log('Modal componentWillUnmount')
+
     }
     render() {
         return createPortal(

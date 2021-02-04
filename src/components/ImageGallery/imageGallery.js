@@ -45,7 +45,7 @@ export default class ImageGallery extends Component {
                 })
                 imagesAPI
                     .getImg(nextName, nextPage)
-                    .then(({ images, totalHits}) => {
+                    .then(({ hits:images, totalHits}) => {
                         if (totalHits === 0) {
                             this.setState({
                                 images: [],
@@ -92,7 +92,7 @@ export default class ImageGallery extends Component {
         const { status, error, images, showModal, largeImg } = this.state;
         return ( 
             <div>
-                {status === 'idle' && <p>Write seach image name.</p>}
+                 {status === 'idle' && <p>Write seach image name.</p>} 
                     <ul className="ImageGallery">
                      {images &&
                         images.map(item => (
@@ -100,8 +100,8 @@ export default class ImageGallery extends Component {
                                 key={item.id}
                                 src={item.webformatURL}
                                 alt={item.tags}
-                                onClick={() => {
-                                    this.handleClickImage(item.largeImageUrl)
+                                onChangeImg={() => {
+                                    this.handleClickImage(item.largeImgUrl)
                                 }}
                             />))
                         }
@@ -115,12 +115,13 @@ export default class ImageGallery extends Component {
                 width={100}
                 />
         }
-                    { (images.length > 0 || status === 'resolved') &&
-                        (<Button onLoadMore={this.loadMore} />)}
+                { (images.length> 0 || status === 'resolved')&&
+                        <Button onloadMore={this.loadMore} />} 
                     {showModal &&
-                        <Modal onToggleModal={this.toggleModal}>
-                        <img src={largeImg} alt={images.tags} />
-                        </Modal>}
+                    <Modal onClose={this.toggleModal}>
+                    <img src={largeImg} alt={images.tags} />
+                    </Modal>
+                       } 
                     </div>
             )
         }      

@@ -1,5 +1,5 @@
 import 'App.css';
-export default function ImageGalleryItem({ src, alt, toggleModal }) {
+export default function ImageGalleryItem({ src, alt, onChangeImg, largeImgUrl}) {
    
     return (
         <li
@@ -9,7 +9,8 @@ export default function ImageGalleryItem({ src, alt, toggleModal }) {
                     src={src}
                     alt={alt}
                 className="ImageGalleryItem-image"
-                onClick = {toggleModal}
+                onClick={onChangeImg}
+                largeImg={largeImgUrl}
             />
         </li>      
     )

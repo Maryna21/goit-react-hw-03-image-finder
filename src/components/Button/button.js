@@ -1,8 +1,13 @@
 import 'App.css';
-export default function Button({ }) {
-   
+export default function Button({ onloadMore }) {
    
     return (
-        <Button type="button" className="Button">Load more</Button>
+        <button
+            type="button"
+            className="Button"
+            onClick={onloadMore}
+        >
+            Load more
+        </button>
     )
     }
