@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import 'App.css';
 import { toast } from 'react-toastify';
 import { Component } from 'react';
@@ -35,8 +36,6 @@ export default class Searchbar extends Component {
                 <input
                     className="SearchForm-input"
                     type="text"
-                    // autocomplete="off"
-                    // autofocus
                     placeholder="Search images and photos"
                     onChange={this.handleNameChange}
                 />
@@ -44,4 +43,7 @@ export default class Searchbar extends Component {
         </header>
     )
     }; 
+}
+Searchbar.propTypes = {
+    searchNameImg: PropTypes.string,
 }

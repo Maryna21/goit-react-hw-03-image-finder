@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import 'App.css';
 import { Component } from 'react';
 import { createPortal } from 'react-dom';
@@ -11,15 +12,11 @@ export default class Modal extends Component {
      }
     
     componentDidMount() {
-        console.log('Modal componentDidMount');
-
         window.addEventListener('keydown', this.handleKeyDown);
     }
    
     componentWillUnmount() {
-        console.log('Modal componentWillUnmount')
         window.removeEventListener('keydown', this.handleKeyDown);
-
     }
    
     handleBackDropClick = event => {
@@ -40,3 +37,6 @@ export default class Modal extends Component {
     }
 }
  
+Modal.propTypes = {
+    onClose: PropTypes.func,
+}

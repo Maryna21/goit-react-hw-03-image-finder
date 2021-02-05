@@ -1,5 +1,6 @@
+import PropTypes from 'prop-types';
 import 'App.css';
-export default function ImageGalleryItem({ src, alt, onChangeImg, largeImg}) {
+export default function ImageGalleryItem({ src, alt, onChangeImg}) {
    
     return (
         <li
@@ -10,9 +11,13 @@ export default function ImageGalleryItem({ src, alt, onChangeImg, largeImg}) {
                     alt={alt}
                 className="ImageGalleryItem-image"
                 onClick={onChangeImg}
-                largeImg={largeImg}
             />
             
         </li>      
     )
-    }
+}
+    ImageGalleryItem.propTypes = {
+        src: PropTypes.string,
+        alt: PropTypes.string,
+        onChangeImg: PropTypes.func,
+}

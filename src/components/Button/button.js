@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import 'App.css';
 export default function Button({ onloadMore }) {
    
@@ -10,4 +11,8 @@ export default function Button({ onloadMore }) {
             Load more
         </button>
     )
-    }
+}
+    
+Button.propTypes = {
+    onloadMore: PropTypes.func,
+}

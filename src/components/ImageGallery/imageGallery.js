@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import 'App.css';
 import { Component } from 'react';
 import ImageGalleryItem from 'components/ImageGalleryItem/imageGalleryItem';
@@ -96,7 +97,7 @@ export default class ImageGallery extends Component {
                                 src={item.webformatURL}
                                 alt={item.tags}
                                 onChangeImg={() => {
-                                    this.handleClickImage(item.largeImgUrl)
+                                    this.handleClickImage(item.largeImageURL)
                                 }}
                             />))
                         }
@@ -119,5 +120,15 @@ export default class ImageGallery extends Component {
                     </div>
             )
         }      
-    }
+}
+    
+ImageGallery.propTypes = {
+     status: PropTypes.string,
+        error: PropTypes.string,
+        images: PropTypes.array,
+        showModal: PropTypes.bool,
+        page: PropTypes.number,
+        largeImg: PropTypes.string,
+
+}
 
